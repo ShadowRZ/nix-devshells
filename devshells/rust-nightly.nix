@@ -30,7 +30,9 @@ mkRustDevShell (
 )
 // builtins.mapAttrs (
   _version: toolchain:
-  toolchain.default.override {
-    extensions = [ "rust-src" ];
-  }
+  mkRustDevShell (
+    toolchain.default.override {
+      extensions = [ "rust-src" ];
+    }
+  )
 ) pkgs.rust-bin.nightly
